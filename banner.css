@@ -1,0 +1,23 @@
+/* Minecraft-Stil-Banner */
+.banner {
+  width: 100%;
+  background: linear-gradient(135deg, #3c3f41, #2a2a3d);
+  color: #f0f0f0;
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 5px solid #4caf50;
+  font-family: 'Minecraft', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.banner h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  text-shadow: 2px 2px 0 #4caf50, 4px 4px 0 #1e1e2f;
+}
+
+.banner p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0;
+  color: #9e9e9e;
+}

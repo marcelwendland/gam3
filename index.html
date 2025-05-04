@@ -53,7 +53,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>RoboAgent minecraft server</h1>
+    <h1>R0b0Agent's minecraft server</h1>
     <div id="status" class="status">loading server data...</div>
     <div id="players" class="players"></div>
     <div id="datetime" class="datetime"></div>
@@ -80,7 +80,7 @@
           statusEl.classList.add("online");
           statusEl.classList.remove("offline");
 
-          playersEl.textContent = `player online: ${data.players.online} / ${data.players.max}`;
+          playersEl.textContent = `players online: ${data.players.online} / ${data.players.max}`;
         } else {
           statusEl.textContent = "Server OFFLINE";
           statusEl.classList.add("offline");

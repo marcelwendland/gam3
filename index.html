@@ -57,6 +57,7 @@
     <div>connect via gam3world.ddns.net</div>
     <div id="status" class="status">loading server data...</div>
     <div id="players" class="players"></div>
+    <br/>
     <div id="datetime" class="datetime"></div>
   </div>
   <footer>
@@ -106,7 +107,7 @@
         hour: "2-digit",
         minute: "2-digit",
       });
-      datetimeEl.textContent = `Aktuelles Datum & Uhrzeit: ${formattedDateTime}`;
+      datetimeEl.textContent = `last update: ${formattedDateTime}`;
     }
 
     fetchStatus();

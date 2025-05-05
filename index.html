@@ -81,7 +81,7 @@
       statusEl.textContent = "Server ONLINE";
       statusEl.classList.add("online");
   playersEl.textContent = `players online: ${data.players.online} / ${data.players.max}`;
-
+/*
   if (data.motd?.clean) {
     const motdEl = document.createElement("div");
     motdEl.textContent = data.motd.clean.join(\"\\n\");
@@ -97,7 +97,7 @@
     listEl.style.marginTop = "0.5rem";
     listEl.style.fontSize = "0.9rem";
     playersEl.after(listEl);
-  }
+  }*/
 }
  else {
           statusEl.textContent = "Server OFFLINE";

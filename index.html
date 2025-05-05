@@ -57,6 +57,7 @@
     <div>connect via gam3world.ddns.net</div>
     <div id="status" class="status">loading server data...</div>
     <div id="players" class="players"></div>
+    <div id="playerlist" class="player"></div>
     <br/>
     <div id="datetime" class="datetime"></div>
   </div>
@@ -80,23 +81,16 @@
         if (data.online) {
       statusEl.textContent = "Server ONLINE";
       statusEl.classList.add("online");
-  playersEl.textContent = `players online: ${data.players.online} / ${data.players.max}`;
-/*
-  if (data.motd?.clean) {
-    const motdEl = document.createElement("div");
-    motdEl.textContent = data.motd.clean.join(\"\\n\");
-    motdEl.style.marginTop = \"1rem\";
-    motdEl.style.color = \"#ccc\";
-    playersEl.after(motdEl);
-  }
-*/
+      
+          playersEl.textContent = `players online: ${data.players.online} / ${data.players.max}`;
+
   // Spieler-Liste nur anzeigen, wenn verfügbar
   if (Array.isArray(data.players?.list) && data.players.list.length > 0) {
     const listEl = document.createElement("div");
     listEl.textContent = "Online: " + data.players.list.join(", ");
     listEl.style.marginTop = "0.5rem";
     listEl.style.fontSize = "0.9rem";
-    playersEl.after(listEl);
+    playerlistEl.after(listEl);
   }
 }
  else {

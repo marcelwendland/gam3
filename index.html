@@ -57,6 +57,7 @@
     <div>go to gam3world.ddns.net</div>
     <div id="status" class="status">loading server data...</div>
     <div id="players" class="players"></div>
+    <div id="playerlist" class="player"></div>
     <br/>
     <div id="datetime" class="datetime"></div>
   </div>
@@ -78,12 +79,21 @@
         const playersEl = document.getElementById("players");
 
         if (data.online) {
-          statusEl.textContent = "Server ONLINE";
-          statusEl.classList.add("online");
-          statusEl.classList.remove("offline");
-
+      statusEl.textContent = "Server ONLINE";
+      statusEl.classList.add("online");
+      
           playersEl.textContent = `players online: ${data.players.online} / ${data.players.max}`;
-        } else {
+
+  // Spieler-Liste nur anzeigen, wenn verfügbar
+  if (Array.isArray(data.players?.list) && data.players.list.length > 0) {
+    const listEl = document.createElement("div");
+    listEl.textContent = "Online: " + data.players.list.join(", ");
+    listEl.style.marginTop = "0.5rem";
+    listEl.style.fontSize = "0.9rem";
+    playerlistEl.after(listEl);
+  }
+}
+ else {
           statusEl.textContent = "Server OFFLINE";
           statusEl.classList.add("offline");
           statusEl.classList.remove("online");

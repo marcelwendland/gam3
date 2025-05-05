@@ -90,11 +90,12 @@
     playersEl.after(motdEl);
   }
 
-  if (data.players?.list?.length > 0) {
-    const listEl = document.createElement(\"div\");
-    listEl.textContent = \"Online: \" + data.players.list.join(\", \");
-    listEl.style.marginTop = \"0.5rem\";
-    listEl.style.fontSize = \"0.9rem\";
+    // Spieler-Liste nur anzeigen, wenn verfügbar
+  if (Array.isArray(data.players?.list) && data.players.list.length > 0) {
+    const listEl = document.createElement("div");
+    listEl.textContent = "Online: " + data.players.list.join(", ");
+    listEl.style.marginTop = "0.5rem";
+    listEl.style.fontSize = "0.9rem";
     playersEl.after(listEl);
   }
 }

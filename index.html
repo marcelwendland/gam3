@@ -49,6 +49,11 @@
       font-size: 0.8rem;
       color: #777;
     }
+    .datetime {
+      margin-top: 1rem;
+      font-size: 0.5rem; /* Schriftgröße halbiert */
+      color: #a0a0a0; /* Helleres Grau, dunkler als der Text, aber heller als der Hintergrund */
+    }
   </style>
 </head>
 <body>
@@ -68,7 +73,7 @@
 
 
   <script>
-    const serverAddress = "gam3world.ddns.net"; // <-- Deine IP oder Domain hier eingetragen
+    const serverAddress = "gam3world.ddns.net"; 
 
     async function fetchStatus() {
       try {
@@ -87,11 +92,17 @@
 
   // Spieler-Liste nur anzeigen, wenn verfügbar
   if (Array.isArray(data.players?.list) && data.players.list.length > 0) {
+    // Vorherige Inhalte der Spieler-Liste löschen
+    playerlistEl.innerHTML = "";
+
+    // Neues Element für die Spieler-Liste erstellen
     const listEl = document.createElement("div");
     listEl.textContent = "Online: " + data.players.list.join(", ");
     listEl.style.marginTop = "0.5rem";
     listEl.style.fontSize = "0.9rem";
-    playerlistEl.after(listEl);
+
+    // Spieler-Liste hinzufügen
+    playerlistEl.appendChild(listEl);
   }
 }
  else {

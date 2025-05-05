@@ -78,12 +78,27 @@
         const playersEl = document.getElementById("players");
 
         if (data.online) {
-          statusEl.textContent = "Server ONLINE";
-          statusEl.classList.add("online");
-          statusEl.classList.remove("offline");
+      statusEl.textContent = "Server ONLINE";
+      statusEl.classList.add("online");
+  playersEl.textContent = `players online: ${data.players.online} / ${data.players.max}`;
 
-          playersEl.textContent = `players online: ${data.players.online} / ${data.players.max}`;
-        } else {
+  if (data.motd?.clean) {
+    const motdEl = document.createElement("div");
+    motdEl.textContent = data.motd.clean.join(\"\\n\");
+    motdEl.style.marginTop = \"1rem\";
+    motdEl.style.color = \"#ccc\";
+    playersEl.after(motdEl);
+  }
+
+  if (data.players?.list?.length > 0) {
+    const listEl = document.createElement(\"div\");
+    listEl.textContent = \"Online: \" + data.players.list.join(\", \");
+    listEl.style.marginTop = \"0.5rem\";
+    listEl.style.fontSize = \"0.9rem\";
+    playersEl.after(listEl);
+  }
+}
+ else {
           statusEl.textContent = "Server OFFLINE";
           statusEl.classList.add("offline");
           statusEl.classList.remove("online");
